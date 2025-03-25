@@ -1,7 +1,6 @@
 # MySQLのベースとセッションの定義
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, scoped_session
+from sqlalchemy.orm import sessionmaker, scoped_session, declarative_base
 
 # 接続情報
 user_name = "user"
@@ -19,7 +18,6 @@ DATABASE = 'mysql://%s:%s@%s/%s?charset=utf8' % (
 # DBとの接続
 ENGINE = create_engine(
     DATABASE,
-    encoding="utf-8",
     echo=True
 )
 
