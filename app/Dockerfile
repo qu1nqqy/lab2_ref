@@ -4,9 +4,10 @@ WORKDIR /usr/src/server
 
 COPY requirements.txt .
 # コンテナ内で必要なパッケージをインストール
-RUN apk add --no-cache build-base mariadb-connector-c-dev \
- && pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt \
- && apk del build-base
+RUN apk add --no-cache build-base mariadb-connector-c-dev
+
+RUN pip install --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
 
 # COPY main.py .
 # COPY static/ static/

@@ -30,6 +30,17 @@ services:
     networks:
       - local-net
 
+  tests:
+    build: app/
+    command: sh -c "PYTHONPATH=/usr/src/server pytest"
+    depends_on:
+      - db
+    volumes:
+      - ./code:/usr/src/server
+    networks:
+      - local-net
+
+
 # コンテナ間で通信を行う
 networks:
   local-net:

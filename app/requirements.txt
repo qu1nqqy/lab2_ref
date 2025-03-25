@@ -6,4 +6,7 @@ starlette
 aiofiles
 mysqlclient
 python-multipart
-datetime
+pytest
+pytest-asyncio
+httpx
+bs4
