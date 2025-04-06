@@ -1,8 +1,8 @@
 # モデルの構成を SQLAlchemy を用いて記述
 from datetime import datetime
 
-from db import Base
-from db import ENGINE
+from .session import Base
+from .session import ENGINE
 
 from sqlalchemy import Column, String, DateTime, ForeignKey
 from sqlalchemy.sql.functions import current_timestamp

@@ -1,6 +1,5 @@
 import hashlib
-import db
-from models import UserTable
+from db import UserTable, session_deps
 from starlette.status import HTTP_401_UNAUTHORIZED
 from fastapi import HTTPException
 
@@ -14,8 +13,8 @@ def basic_auth(credentials):
     username = credentials.username
     password = hashlib.md5(credentials.password.encode()).hexdigest()
     # UserTableからユーザ名が一致する情報を取得
-    user = db.session.query(UserTable).filter(UserTable.username == username).first()
-    db.session.close()
+    user = session_deps.query(UserTable).filter(UserTable.username == username).first()
+    session_deps.close()
 
     if user is None or user.password != password:
         error = 'ユーザ名かパスワードが間違っています'

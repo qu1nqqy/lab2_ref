@@ -1,7 +1,7 @@
 # tests/test_calendar.py
 
 import pytest
-from ..mycalendar import MyCalendar
+from services.calendar_service import MyCalendar
 from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
 
